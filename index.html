@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио дизайнера рекламных постеров | [Ваше имя]</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF6B6B;
+            --primary-dark: #EE5A5A;
+            --secondary: #4ECDC4;
+            --accent: #FFD166;
+            --dark: #1A1A2E;
+            --light: #F9F9FF;
+            --gray: #8C8CA1;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 4px;
+            background: var(--primary);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary);
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.2);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 0;
+            z-index: 1000;
+            background-color: rgba(249, 249, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+        
+        header.scrolled {
+            padding: 15px 0;
+            background-color: rgba(249, 249, 255, 0.98);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--dark);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--primary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 40px;
+        }
+        
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            bottom: -5px;
+            left: 0;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--dark);
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding-top: 150px;
+            padding-bottom: 100px;
+            display: flex;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.05) 0%, rgba(78, 205, 196, 0.05) 100%);
+        }
+        
+        .hero-content {
+            flex: 1;
+            padding-right: 40px;
+        }
+        
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            color: var(--gray);
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+        
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            color: var(--primary);
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--gray);
+        }
+        
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .skill {
+            background: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 500;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .about-image img {
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Portfolio Section - Рекламные постеры */
+        .portfolio {
+            background-color: #f0f0fa;
+        }
+        
+        .portfolio-subtitle {
+            text-align: center;
+            color: var(--gray);
+            margin-bottom: 50px;
+            font-size: 18px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .portfolio-filter {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .filter-btn {
+            padding: 8px 20px;
+            background: white;
+            border: none;
+            border-radius: 30px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .posters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        
+        .poster-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+        }
+        
+        .poster-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .poster-img {
+            height: 450px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .poster-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .poster-item:hover .poster-img img {
+            transform: scale(1.05);
+        }
+        
+        .poster-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 26, 46, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .poster-item:hover .poster-overlay {
+            opacity: 1;
+        }
+        
+        .poster-info {
+            padding: 25px;
+        }
+        
+        .poster-info h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .poster-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .tag {
+            background: rgba(255, 107, 107, 0.1);
+            color: var(--primary);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .poster-info p {
+            color: var(--gray);
+            font-size: 15px;
+            margin-bottom: 15px;
+        }
+        
+        /* Services Section - для дизайна постеров */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(255, 107, 107, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 30px;
+            color: var(--primary);
+        }
+        
+        .service-card h3 {
+            margin-bottom: 15px;
+        }
+        
+        /* Концепции постеров */
+        .concepts {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.05) 0%, rgba(78, 205, 196, 0.05) 100%);
+        }
+        
+        .concepts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .concept-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+        }
+        
+        .concept-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .concept-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .concept-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .concept-info {
+            padding: 25px;
+        }
+        
+        .concept-info h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .concept-info p {
+            color: var(--gray);
+            font-size: 14px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background-color: var(--dark);
+            color: white;
+        }
+        
+        .contact .section-title {
+            color: white;
+        }
+        
+        .contact .section-title:after {
+            background: var(--secondary);
+        }
+        
+        .contact-container {
+            display: flex;
+            gap: 60px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-info h3 {
+            color: white;
+            margin-bottom: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 20px;
+            color: var(--secondary);
+        }
+        
+        .contact-form {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 15px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        /* Footer */
+        footer {
+            background: #1e2035;
+            color: #aaa;
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero, .about-content, .contact-container {
+                flex-direction: column;
+            }
+            
+            .hero-content, .about-text, .about-image, .contact-info, .contact-form {
+                padding-right: 0;
+                margin-bottom: 40px;
+            }
+            
+            .hero h1 {
+                font-size: 40px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .posters-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .poster-img {
+                height: 350px;
+            }
+        }
+        
+        /* Mobile menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100vh;
+            background: white;
+            z-index: 1001;
+            padding: 80px 30px 30px;
+            box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+        
+        .mobile-menu.active {
+            right: 0;
+        }
+        
+        .mobile-menu-links {
+            list-style: none;
+        }
+        
+        .mobile-menu-links li {
+            margin-bottom: 20px;
+        }
+        
+        .mobile-menu-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            display: block;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .close-menu {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--dark);
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            display: none;
+        }
+        
+        .overlay.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container nav-container">
+            <a href="#" class="logo">Poster<span>Design</span></a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-links">
+                <li><a href="#home">Главная</a></li>
+                <li><a href="#about">Обо мне</a></li>
+                <li><a href="#posters">Рекламные постеры</a></li>
+                <li><a href="#services">Услуги</a></li>
+                <li><a href="#concepts">Концепции</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="overlay" id="overlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="close-menu" id="closeMenu">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul class="mobile-menu-links">
+            <li><a href="#home">Главная</a></li>
+            <li><a href="#about">Обо мне</a></li>
+            <li><a href="#posters">Рекламные постеры</a></li>
+            <li><a href="#services">Услуги</a></li>
+            <li><a href="#concepts">Концепции</a></li>
+            <li><a href="#contact">Контакты</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero section" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Дизайн рекламных постеров, которые привлекают внимание</h1>
+                <p>Я создаю визуально мощные и эффективные рекламные постеры для брендов, мероприятий и кампаний. Каждый дизайн — это уникальное сообщение, которое запоминается и побуждает к действию.</p>
+                <div class="hero-btns">
+                    <a href="#posters" class="btn">Смотреть постеры</a>
+                    <a href="#contact" class="btn btn-secondary">Заказать дизайн</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Дизайнер рекламных постеров">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about section" id="about">
+        <div class="container">
+            <h2 class="section-title">Обо мне</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Дизайнер рекламных постеров</h3>
+                    <p>Специализируюсь на создании визуально привлекательных и эффективных рекламных постеров. Мой опыт включает работу с брендами из различных отраслей — от моды и красоты до технологий и мероприятий.</p>
+                    <p>Мой подход сочетает в себе глубокое понимание маркетинга, психологии восприятия и современных трендов дизайна. Я убежден, что хороший рекламный постер должен не только привлекать внимание, но и четко передавать сообщение бренда.</p>
+                    <div class="skills">
+                        <div class="skill">Дизайн постеров</div>
+                        <div class="skill">Рекламная графика</div>
+                        <div class="skill">Типографика</div>
+                        <div class="skill">Adobe Creative Suite</div>
+                        <div class="skill">Иллюстрация</div>
+                        <div class="skill">Брендинг</div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1587614382346-4ec70e388b28?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Дизайнер за работой над постером">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Posters Section -->
+    <section class="portfolio section" id="posters">
+        <div class="container">
+            <h2 class="section-title">Рекламные постеры</h2>
+            <p class="portfolio-subtitle">Коллекция моих лучших работ в дизайне рекламных постеров для различных брендов, мероприятий и кампаний.</p>
+            
+            <div class="portfolio-filter">
+                <button class="filter-btn active" data-filter="all">Все постеры</button>
+                <button class="filter-btn" data-filter="event">Мероприятия</button>
+                <button class="filter-btn" data-filter="fashion">Мода</button>
+                <button class="filter-btn" data-filter="music">Музыка</button>
+                <button class="filter-btn" data-filter="brand">Бренды</button>
+            </div>
+            
+            <div class="posters-grid">
+                <div class="poster-item" data-category="event">
+                    <div class="poster-img">
+                        <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Постер музыкального фестиваля">
+                        <div class="poster-overlay">
+                            <a href="#" class="btn">Подробнее</a>
+                        </div>
+                    </div>
+                    <div class="poster-info">
+                        <div class="poster-tags">
+                            <span class="tag">Мероприятие</span>
+                            <span class="tag">Музыка</span>
+                        </div>
+                        <h3>Фестиваль "Лето в городе"</h3>
+                        <p>Яркий и динамичный постер для летнего музыкального фестиваля. Дизайн передает энергию мероприятия через цвет и типографику.</p>
+                    </div>
+                </div>
+                
+                <div class="poster-item" data-category="fashion">
+                    <div class="poster-img">
+                        <img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Постер модного бренда">
+                        <div class="poster-overlay">
+                            <a href="#" class="btn">Подробнее</a>
+                        </div>
+                    </div>
+                    <div class="poster-info">
+                        <div class="poster-tags">
+                            <span class="tag">Мода</span>
+                            <span class="tag">Брендинг</span>
+                        </div>
+                        <h3>Коллекция "Urban Style"</h3>
+                        <p>Минималистичный постер для модного бренда. Акцент на типографике и композиции создает ощущение стиля и современности.</p>
+                    </div>
+                </div>
+                
+                <div class="poster-item" data-category="music">
+                    <div class="poster-img">
+                        <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Постер концерта">
+                        <div class="poster-overlay">
+                            <a href="#" class="btn">Подробнее</a>
+                        </div>
+                    </div>
+                    <div class="poster-info">
+                        <div class="poster-tags">
+                            <span class="tag">Музыка</span>
+                            <span class="tag">Концерт</span>
+                        </div>
+                        <h3>Концерт "Ночь рока"</h3>
+                        <p>Энергичный постер для рок-концерта с использованием грубых текстур и контрастных цветов, передающих дух жанра.</p>
+                    </div>
+                </div>
+                
+                <div class="poster-item" data-category="brand">
+                    <div class="poster-img">
+                        <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Рекламный постер для кофейни">
+                        <div class="poster-overlay">
+                            <a href="#" class="btn">Подробнее</a>
+                        </div>
+                    </div>
+                    <div class="poster-info">
+                        <div class="poster-tags">
+                            <span class="tag">Бренд</span>
+                            <span class="tag">Еда и напитки</span>
+                        </div>
+                        <h3>Кофейня "Morning Brew"</h3>
+                        <p>Теплый и привлекательный постер для местной кофейни, передающий уют и качество через цветовую палитру и иллюстрации.</p>
+                    </div>
+                </div>
+                
+                <div class="poster-item" data-category="event">
+                    <div class="poster-img">
+                        <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Постер выставки искусства">
+                        <div class="poster-overlay">
+                            <a href="#" class="btn">Подробнее</a>
+                        </div>
+                    </div>
+                    <div class="poster-info">
+                        <div class="poster-tags">
+                            <span class="tag">Мероприятие</span>
+                            <span class="tag">Искусство</span>
+                        </div>
+                        <h3>Выставка "Современное искусство"</h3>
+                        <p>Креативный постер для художественной выставки, сочетающий традиционные и современные элементы дизайна.</p>
+                    </div>
+                </div>
+                
+                <div class="poster-item" data-category="brand">
+                    <div class="poster-img">
+                        <img src="https://images.unsplash.com/photo-1571115764595-644a1f56a55c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Рекламный постер для технологической компании">
+                        <div class="poster-overlay">
+                            <a href="#" class="btn">Подробнее</a>
+                        </div>
+                    </div>
+                    <div class="poster-info">
+                        <div class="poster-tags">
+                            <span class="tag">Бренд</span>
+                            <span class="tag">Технологии</span>
+                        </div>
+                        <h3>Технологическая конференция</h3>
+                        <p>Футуристичный постер для IT-конференции с использованием геометрических форм и современных шрифтов.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services section" id="services">
+        <div class="container">
+            <h2 class="section-title">Мои услуги</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Дизайн рекламных постеров</h3>
+                    <p>Создание уникальных и эффективных рекламных постеров для любых целей: мероприятий, брендов, продуктов и кампаний.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>Рекламная графика</h3>
+                    <p>Разработка визуальных материалов для рекламных кампаний в соцсетях, наружной рекламы и печатных материалов.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-font"></i>
+                    </div>
+                    <h3>Типографика</h3>
+                    <p>Создание уникальных типографических решений для постеров, которые усиливают сообщение и привлекают внимание.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Concepts Section -->
+    <section class="concepts section" id="concepts">
+        <div class="container">
+            <h2 class="section-title">Концепции постеров</h2>
+            <p class="portfolio-subtitle">Идеи и эскизы для будущих проектов. Каждая концепция — это уникальный подход к решению маркетинговой задачи.</p>
+            
+            <div class="concepts-grid">
+                <div class="concept-card">
+                    <div class="concept-img">
+                        <img src="https://images.unsplash.com/photo-1602576666092-0cba8e6d2c9a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Концепция постера для кинофестиваля">
+                    </div>
+                    <div class="concept-info">
+                        <h3>Кинофести
